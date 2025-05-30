@@ -1,0 +1,40 @@
+// components/CartDrawer.js
+"use client";
+import React from "react";
+import { useCart } from "../context/CartContext";
+import Image from "next/image";
+import { Trash, Minus, Plus } from "lucide-react";
+
+export default function CartDrawer() {
+  const { cartItems, removeFromCart, increaseQuantity, decreaseQuantity, totalAmount } = useCart();
+
+  return (
+    <div className="w-[350px] bg-white shadow-lg p-4">
+      <h2 className="font-bold text-lg border-b pb-2 mb-4">Shopping Cart</h2>
+      {cartItems.map((item) => (
+        <div key={item._id} className="flex gap-3 mb-4 border-b pb-2">
+          <div className="w-[80px] h-[100px] relative">
+            <Image src={item.images[0].optimizeUrl} alt={item.name} fill className="object-cover rounded" />
+          </div>
+          <div className="flex-1">
+            <p className="font-semibold text-sm truncate">{item.name}</p>
+            <p className="line-through text-gray-400 text-sm">৳{item.originalPrice || item.price}</p>
+            <p className="text-pink-600 font-bold text-sm">৳{item.price}</p>
+            <div className="flex items-center gap-2 mt-1">
+              <button onClick={() => decreaseQuantity(item._id)} className="btn btn-xs">-</button>
+              <span>{item.quantity}</span>
+              <button onClick={() => increaseQuantity(item._id)} className="btn btn-xs">+</button>
+            </div>
+          </div>
+          <button onClick={() => removeFromCart(item._id)} className="text-red-500">
+            <Trash size={18} />
+          </button>
+        </div>
+      ))}
+
+      <div className="mt-4 font-bold text-right">
+        Subtotal: <span className="text-pink-600">৳{totalAmount}</span>
+      </div>
+    </div>
+  );
+}
