@@ -7,7 +7,7 @@ export default function page() {
   return (
     <div>
         <div className='bg-[#FFD5D5]'>
-        <div className='w-11/12 mx-auto md:flex  gap-8 pb-8'>
+        <div className='w-11/12 mx-auto md:flex  gap-8 py-8'>
             <div className='flex-1 flex justify-center rounded'>
                                 <Image src={image} alt="banner image" />
                             </div>

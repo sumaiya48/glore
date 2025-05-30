@@ -5,7 +5,7 @@ import image from '@/public/banner.png'
 
 export default function Banner() {
     return (
-        <div className='bg-[#FFD5DF] pb-10'>
+        <div className='bg-[#FFD5DF] py-10'>
             <div className=' w-11/12 mx-auto bg-[#FFEBF0] rounded-xl flex '>
                 <div className=' flex-1 flex flex-col items-center  justify-center px-6 md:p-10 '>
                     <h3 className='text-xl  md:text-5xl text-center font-extrabold leading-relaxed'>নতুন <br/>
