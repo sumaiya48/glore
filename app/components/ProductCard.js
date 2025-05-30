@@ -14,9 +14,11 @@ export default function ProductCard({ product }) {
 
   return (
 
-    <Link  href={`/products/${_id}`} className='block'>
-<div className="bg-white rounded-xl shadow-md overflow-hidden w-full max-w-xs mx-auto">
-      <div className="relative w-full h-[500px]">
+    
+    <div className="bg-white rounded-xl shadow-md overflow-hidden w-full max-w-xs mx-auto">
+      
+      <Link  href={`/products/${_id}`} className='block'>
+<div className="relative w-full h-[500px]">
         
         <Image
           src={imageUrl}
@@ -26,6 +28,8 @@ export default function ProductCard({ product }) {
           sizes="(max-width: 768px) 100vw, 25vw"
         />
       </div>
+    </Link>
+      
 
       <div className="p-4">
         <h2 className="text-sm font-bold text-gray-800 truncate">{name}</h2>
@@ -41,7 +45,6 @@ export default function ProductCard({ product }) {
       </div>
     </div>
 
-    </Link>
    
   );
 }
